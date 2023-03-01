@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<title>와이파이 정보 구하기 </title>
+</head>
+<body>
+<h2>와이파이 정보 구하기 </h2>
+<a href="main.html">홈</a>
+<a href="history.html">위치 히스토리 목록</a>
+<a href="load-wifi.html">Open API 와이파이 정보 가져오기</a>
+<br>
+<label for="input1">LAT</label>
+<input type="text" placeholder="0.0" id="input1">
+<label for="input2">LNT</label>
+<input type="text" placeholder="0.0" id="input2">
+<button>
+	내 위치 가져오기
+</button>
+<button>근처 WIFI 정보 보기</button>
+<table>
+    <style>
+      table {
+        width: 100%;
+      }
+      table, th, td {
+        border:solid 1px white;
+        border-collapse: collapse;
+      }
+    </style>
+    <thead>
+      <table border="1" align="center">
+	<tr align="center" bgcolor="#3cb371">
+		<td><<b>거리(Km)</b></td>
+        <td><b>관리번호</b></td>
+        <td><b>자치구</b></td>
+        <td><b>와이파이명</b></td>
+        <td><b>도로명주소</b></td>
+        <td><b>상세주소</b></td>
+        <td><b>설치위치(층)</b></td>
+        <td><b>설치유형</b></td>
+        <td><b>설치기관</b></td>
+        <td><b>서비스구분</b></td>
+        <td><b>망종류</b></td>
+        <td><b>설치년도</b></td>
+        <td><b>실내외구분</b></td>
+        <td><b>WIFI접속환경</b></td>
+        <td><b>X좌표</b></td>
+        <td><b>Y좌표</b></td>
+        <td><b>작업일자M</b></td>
+        </tr>
+        <c:forEach var = "wifi" items="${wifiList}">
+        <tr align="center">
+        	<td>${wifi.km}</td>
+        	<td>${wifi.checkingPlace}</td>
+        	<td>${wifi.district}</td>
+        	<td>${wifi.address}</td>
+        	<td>${wifi.detailAddress}</td>
+        	<td>${wifi.installFloors}</td>
+        	<td>${wifi.installType}</td>
+        	<td>${wifi.installAgency}</td>
+        	<td>${wifi.servieType}</td>
+        	<td>${wifi.netType}</td>
+        	<td>${wifi.installDate}</td>
+        	<td>${wifi.envWifi}</td>
+        	<td>${wifi.x}</td>
+        	<td>${wifi.y}</td>
+        	<td>${wifi.operationDate}</td>
+        	</tr>
+        	</c:forEach>
+		</table>
+    </thead>
+    <tr>
+      <style>
+        table {
+          width: 100%
+        }
+        table, th, td {
+          border:solid 1px darkgrey;
+          border-collapse: collapse;
+          text-align: center;
+        }
+      </style>
+    </tr>
+  </table>
+</body>
+</html>
